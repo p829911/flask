@@ -9,6 +9,22 @@ app = Flask(__name__)
 app.debug = True
 
 
+@app.route('/wc')
+def wc():
+    key = request.args.get('key')
+    val = request.args.get('val')
+    res = Response('SET COOKIE')
+    res.set_cookie(key, val)
+    return make_response(res)
+
+
+@app.route('/rc')
+def rc():
+    key = request.args.get('key')
+    val = request.cookies.get(key)
+    return 'cookie[' + key + '] = ' + val
+
+
 @app.route('/reqenv')
 def reqenv():
     return ('REQUEST_METHOD: %(REQUEST_METHOD) s <br>'

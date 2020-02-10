@@ -155,10 +155,38 @@ XHR (XMLHttpRequest) : AJAX 요청을 생성하는 JavaScript API 이다. XHR의
 
 ```python
 request.is_xhr
-request.endpoint
-request.get_json()
+request.endpoint # 현재 uri
+request.get_json() 
 
 app.config.update(MAX_CONTENT_LENGTH=1024*1024)
 request.max_content_length
 ```
+
+
+
+### Response Object
+
+```python
+from flask import Response
+```
+
+##### Response Attributes
+
+- headers
+- status
+- status_code
+- data
+- mimetype
+
+```python
+# ex)
+res = Response('Test')
+res.headers.add('Program-Name', 'Test Response')
+res.set_data("This is Test Program.")
+res.set_cookie("UserToken", "A12Bc9")
+```
+
+
+
+
 
