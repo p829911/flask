@@ -5,16 +5,31 @@ from flask import redirect
 from flask import render_template
 from models import db
 
+from models import Fcuser
+
 app = Flask(__name__)
 
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    if request.method == 'GET':
-        return render_template('register.html')
-    else:
-        # 회원 정보 생성
-        return redirect('/')
+    if request.method == 'POST':
+        userid = request.form.get('userid')
+        username = request.form.get('username')
+        password = request.form.get('password')
+        re_password = request.form.get('re-password')
+
+        if (userid and username and password and re_password) and password == re_password:
+            fcuser = Fcuser()
+            fcuser.userid = userid
+            fcuser.username = username
+            fcuser.password = password
+
+            db.session.add(fcuser)
+            db.session.commit()
+
+            return redirect('/')
+
+    return render_template('register.html')
 
 
 @app.route('/')
