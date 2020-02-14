@@ -236,3 +236,28 @@ bootstrap
 #### static file 관리
 
 프로젝트 안에다가 static 폴더를 만들면 끝이다.
+
+
+
+#### 로그인 뷰와 컨트롤러 일부 만들기
+
+- 코드 참조
+
+
+
+#### 세션이란?
+
+![](https://user-images.githubusercontent.com/17154958/74392170-9e155a00-4e49-11ea-9268-4d6563ad318c.png)
+
+
+
+####  백엔드와 프론트엔드
+
+![](https://user-images.githubusercontent.com/17154958/74507533-09d9ee80-4f40-11ea-9f58-b1df1c2661b3.png)
+
+- 백엔드가 Response로 페이지 전체 코드(HTML)를 전달
+- 어떤 단점이 있을까?
+  - 모든 Request의 결과가 '페이지'
+  - 즉, 페이지를 새로 그리게(Refresh)된다
+
+![](https://user-images.githubusercontent.com/17154958/74508492-840b7280-4f42-11ea-8c43-a4d4fdbcff2e.png)
