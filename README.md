@@ -1,2 +1,2 @@
 # flask
-flask 연습
+Flask Project 
